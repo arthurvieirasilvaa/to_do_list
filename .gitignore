@@ -1,0 +1,8 @@
+# Ignora o banco de dados:
+db.sqlite3
+
+# Ignora o ambiente virtual:
+env
+
+# Ignora as pastas __pycache__:
+__pycache__
