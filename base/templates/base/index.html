@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1>To Do List</h1>
+
+    <p>You have {{ tasks_count }} tasks in total</p>
+    <p>You still have {{ uncompleted_tasks }} tasks to complete</p>
+    
+    <div class="tasks-container">
+        {% for task in tasks %}
+            <p>{{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.title }}</a></p>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
