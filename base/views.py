@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.models import User
 
 from .models import Task
 from .forms import UserForm
@@ -28,15 +29,45 @@ def registerPage(request):
             messages.error(request, "An error occurred during registration!")
     
     context = {'form': form}
+    
     return render(request, 'base/register.html', context)
 
 
 def loginPage(request):
-    pass
+    # Um usuário já autenticado não consegue acessar essa página:
+    if request.user.is_authenticated:
+        return redirect('index')
+    
+    # Se a requisição é POST, precisamos processar os dados do formulário:
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        # Verificando se o usuário existe:
+        try:
+            user = User.objects.get(username=username)
+        except:
+            messages.error(request, 'User does not exist!')
+            
+        # Autenticando o usuário:
+        user = authenticate(username=username, password=password)
+        
+        # Se as credenciais são válidas:
+        if user is not None:
+            login(request, user) # loga o usuário
+            
+            return redirect('index')
+        
+        else:
+            messages.error(request, "Invalid Username OR Password!")
+        
+    return render(request, 'base/login.html')
     
 
 def logoutPage(request):
-    pass
+    logout(request)
+    
+    return redirect('login')
     
 
 def index(request):
