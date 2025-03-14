@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 from .models import Task
 from .forms import UserForm
@@ -68,10 +69,12 @@ def logoutPage(request):
     logout(request)
     
     return redirect('login')
-    
 
+    
+@login_required(login_url='login')
 def index(request):
-    tasks = Task.objects.all()
+    # Obtém todas as tasks do usuário:
+    tasks = Task.objects.filter(user=request.user)
     tasks_count = tasks.count()
     uncompleted_tasks = tasks.filter(completed=False).count()
     
@@ -80,6 +83,7 @@ def index(request):
     return render(request, 'base/index.html', context)
 
 
+@login_required(login_url='login')
 def task(request, pk):   
     task = Task.objects.get(id=pk)
 
