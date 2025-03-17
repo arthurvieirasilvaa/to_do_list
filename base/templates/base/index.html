@@ -6,12 +6,20 @@
 
     <h1>To Do List</h1>
 
+    <form action="" method="post">
+        {% csrf_token %}
+        <input class="add-task-input" name="new-task" type="text" placeholder="Add a new task...">
+    </form>
+
     <p>You have {{ tasks_count }} tasks in total</p>
     <p>You still have {{ uncompleted_tasks }} tasks to complete</p>
     
     <div class="tasks-container">
         {% for task in tasks %}
-            <p>{{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.title }}</a></p>
+            <p>
+                {{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.title }}</a>
+                <a href="{% url 'update-task' task.id %}"><span class="material-symbols-outlined">edit_square</span></a>
+            </p>
         {% endfor %}
     </div>
 

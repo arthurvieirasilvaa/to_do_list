@@ -5,14 +5,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 from .models import Task
-from .forms import UserForm
+from .forms import UserForm, TaskForm
 
 
 # Create your views here.
 
 def registerPage(request):
-    form = UserForm()
-    
+
     # Se a requisição é POST, precisamos processar os dados do formulário:
     if request.method == 'POST':
         # Cria a instância do formulário com os dados já preenchidos:
@@ -28,6 +27,9 @@ def registerPage(request):
     
         else:
             messages.error(request, "An error occurred during registration!")
+    
+    else:
+        form = UserForm()
     
     context = {'form': form}
     
@@ -73,11 +75,21 @@ def logoutPage(request):
     
 @login_required(login_url='login')
 def index(request):
+    # Se a requisição é POST, precisamos processar os dados do formulário:
+    if request.method == 'POST':
+        task_title = request.POST.get('new-task')
+        
+        if task_title != '':
+            task = Task.objects.create(
+                user=request.user,
+                title=task_title,
+            )
+    
     # Obtém todas as tasks do usuário:
     tasks = Task.objects.filter(user=request.user)
     tasks_count = tasks.count()
     uncompleted_tasks = tasks.filter(completed=False).count()
-    
+        
     context = {'tasks': tasks, 'tasks_count': tasks_count, 'uncompleted_tasks': uncompleted_tasks}
         
     return render(request, 'base/index.html', context)
@@ -90,3 +102,30 @@ def task(request, pk):
     context = {'task': task}    
     
     return render(request, 'base/task.html', context)
+
+
+@login_required(login_url='login')
+def taskUpdate(request, pk):
+    task = Task.objects.get(id=pk)
+    form = TaskForm(instance=task)
+    
+    # Se a requisição é POST, precisamos processar os dados do formulário:
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        
+        # Verifica se o formulário é válido:
+        if form.is_valid():
+            task.title = request.POST.get('title')
+            task.description = request.POST.get('description')
+            
+            # Só atualiza completed se a opção for selecionada:
+            if request.POST.get('completed') is not None:
+                task.completed = request.POST.get('completed')
+            
+            task.save() # atualiza os dados da task
+            
+            return redirect('index')
+            
+    context = {'form': form}
+    
+    return render(request, 'base/update_task.html', context)

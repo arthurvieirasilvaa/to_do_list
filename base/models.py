@@ -6,7 +6,7 @@ class Task(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True) 
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
-    completed = models.BooleanField(default=False)
+    completed = models.BooleanField(default=False, blank=True)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     
