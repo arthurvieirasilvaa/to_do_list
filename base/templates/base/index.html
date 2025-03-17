@@ -19,6 +19,7 @@
             <p>
                 {{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.title }}</a>
                 <a href="{% url 'update-task' task.id %}"><span class="material-symbols-outlined">edit_square</span></a>
+                <a href="{% url 'delete-task' task.id %}"><span class="material-symbols-outlined">delete</span></a>
             </p>
         {% endfor %}
     </div>

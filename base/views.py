@@ -129,3 +129,17 @@ def taskUpdate(request, pk):
     context = {'form': form}
     
     return render(request, 'base/update_task.html', context)
+
+
+@login_required(login_url='login')
+def deleteTask(request, pk):
+    task = Task.objects.get(id=pk)
+    
+    if request.method == 'POST':
+        task.delete()
+        
+        return redirect('index')
+    
+    context = {'task': task}
+    
+    return render(request, 'base/delete_task.html', context)
