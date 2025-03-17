@@ -16,11 +16,11 @@
     
     <div class="tasks-container">
         {% for task in tasks %}
-            <p>
+            <div class="task-item">
                 {{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.title }}</a>
                 <a href="{% url 'update-task' task.id %}"><span class="material-symbols-outlined">edit_square</span></a>
                 <a href="{% url 'delete-task' task.id %}"><span class="material-symbols-outlined">delete</span></a>
-            </p>
+            </div>
         {% endfor %}
     </div>
 

@@ -119,8 +119,11 @@ def taskUpdate(request, pk):
             task.description = request.POST.get('description')
             
             # Só atualiza completed se a opção for selecionada:
-            if request.POST.get('completed') is not None:
-                task.completed = request.POST.get('completed')
+            if request.POST.get('completed') == 'on':
+                task.completed = True
+            
+            else:
+                task.completed = False
             
             task.save() # atualiza os dados da task
             
