@@ -9,18 +9,26 @@
             {% csrf_token %}
             <input class="add-task-input" name="new-task" type="text" placeholder="Add a new task...">
         </form>
-        <p>You have {{ tasks_count }} tasks in total</p>
-        <p>You still have {{ uncompleted_tasks }} tasks to complete</p>
         
-        <div class="tasks-container">
-            {% for task in tasks %}
-                <div class="task-item">
-                    {{ task.id }} - <a href="{% url 'task' task.id %}">{{ task.title }}</a>
-                    <a href="{% url 'update-task' task.id %}"><span class="material-symbols-outlined">edit_square</span></a>
-                    <a href="{% url 'delete-task' task.id %}"><span class="material-symbols-outlined">delete</span></a>
-                </div>
-            {% endfor %}
+        <div class="p-wrapper">
+            <p>You have {{ tasks_count }} tasks in total</p>
+            <p>You still have {{ uncompleted_tasks }} tasks to complete</p>
         </div>
+        
+        {% for task in tasks %}
+            <div class="task-item">
+                <a id="task-title-link" href="{% url 'task' task.id %}">
+                    <div class="task-title-wrapper">
+                        {{ task.title }}
+                    </div>
+                </a>
+                
+                <div class="task-icons">
+                    <a id="edit-icon" href="{% url 'update-task' task.id %}"><span class="material-symbols-outlined">edit_square</span></a>
+                    <a id="delete-icon" href="{% url 'delete-task' task.id %}"><span class="material-symbols-outlined">delete</span></a>
+                </div>
+            </div>
+        {% endfor %}
     </main>
 
 {% endblock content %}

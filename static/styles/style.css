@@ -29,7 +29,6 @@ nav {
     height: 4vh;
     
     display: flex;
-    flex-direction: row;
     gap: 10px;
     text-align: right;
     align-items: center;
@@ -40,8 +39,6 @@ nav {
     position: relative;
     transition: all .3s cubic-bezier(.2, 0, 0, 1);
     z-index: 1;
-
-    border: 1px solid yellow;
 }
 
 nav a {
@@ -83,8 +80,122 @@ main {
     width: 98vw;
     height: 500px;
     display: flex;
-    border: 1px solid red;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+h1 {
+    font-family: var(--mainfont);
+    font-size: 3em;
+    font-weight: bold;
+    
+    color: var(--fontcolor1);
+    text-shadow: 2px 2px 1px var(--fontcolor2);
+    
+    margin: 20px;
+}
+
+.add-task-input {
+    width: 300px;
+    height: 30px;
+    
+    border-radius: 50px;
+    border: none;
+    background-color: var(--fontcolor1);
+    font-family: var(--secondfont);
+    font-size: 1em;
+    font-weight: 300;
+    
+
+    margin-bottom: 20px;
+    padding: 3px 8px;
+}
+
+.add-task-input:hover {
+    cursor: pointer;
+    background-color: #e4f9f5f5;
+    border: 1px solid var(--fontcolor2);
+}
+
+.add-task-input::placeholder {
+    color: var(--fontcolor2);
+}
+
+.p-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    width: 270px;
+    line-height: 1.8em;
+}
+
+p {
+    font-family: var(--secondfont);
+    font-weight: normal;
+    font-size: 1em;
+
+    color: var(--fontcolor1);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    
+    width: 280px;
+    height: 40px;
+    
+    margin: 10px;
+}
+
+#task-title-link {
+    text-decoration: none;
+    font-family: var(--secondfont);
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--fontcolor2);
+    border-radius: 5px;
+}
+
+.task-title-wrapper {
+    display: flex;
+    align-items: center;
+
+    width: 240px;
+    height: 30px;
+    padding: 2px 5px;
+
+    cursor: pointer;
+    background-color: var(--fontcolor1);
+    border-radius: 5px;
+}
+
+.task-title-wrapper:hover {
+    background-color: #e4f9f5f5;
+    border: 1px solid var(--fontcolor2);
+    font-size: 1.1em;
+}
+
+.task-icons {
+    display: flex;
+    gap: 5px;
+    
+    margin: 4px;
+    padding: 4px;
+}
+
+#edit-icon {
+    color: var(--fontcolor2);
+}
+
+#edit-icon:hover {
+    color: black;
+}
+
+#delete-icon {
+    color: var(--fontcolor2);
+}
+
+#delete-icon:hover {
+    color: #e70e02;
 }
