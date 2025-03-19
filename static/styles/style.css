@@ -7,6 +7,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* Variáveis utilizadas */
@@ -25,15 +26,16 @@
 
 body {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: linear-gradient(to bottom, var(--bgcolor2) 25%, var(--bgcolor1) 75%);
+    overflow-x: hidden;
 }
 
 /* Estilos para o menu de navegação */
 
 nav {
     float: right;
-    width: 20vw;
+    width: 100%;
     height: 4vh;
     
     display: flex;
@@ -42,6 +44,7 @@ nav {
     align-items: center;
     justify-content: flex-end;
     
+    margin-top: 10px;
     padding: 10px;
 
     position: relative;
@@ -72,7 +75,7 @@ nav a::before {
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
-  }
+}
 
 nav a:hover {
     font-size: 1.5em;
@@ -92,26 +95,31 @@ main {
     align-items: center;
     justify-content: center;
 
-    width: 98vw;
-    height: 500px;
-    padding: 30px 0px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    min-height: 500px;
+    max-height: 700px;
 }
 
 /* Estilos para o título principal das páginas */
 
 h1 {
+    max-width: 60%;
+    max-height: 20%;
     font-family: var(--mainfont);
     font-size: 3em;
     font-weight: bold;
     
     color: var(--fontcolor1);
     text-shadow: 2px 2px 1px var(--fontcolor2);
+    margin-top: 80px;
 }
 
 /* Estilos para a página principal */
 
 .add-task-input {
-    width: 300px;
+    min-width: 300px;
     height: 30px;
     
     border-radius: 50px;
@@ -121,7 +129,7 @@ h1 {
     font-size: 1em;
     font-weight: 300;
     
-    margin-bottom: 20px;
+    margin: 20px 0px;
     padding: 3px 8px;
 }
 
@@ -234,7 +242,7 @@ p {
     font-family: var(--mainfont);
     font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 4px;
+    margin: 5px 0px;
     
     color: var(--fontcolor1);
 }
@@ -251,7 +259,7 @@ p {
     font-size: 1em;
     font-weight: 300;
     
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-left: 20px;
     padding: 2px 4px;
 }
@@ -283,6 +291,7 @@ p {
     border: none;
     border-radius: 5px;
     box-shadow: 1px 1px 1px var(--bgcolor1);
+    margin-top: 20px;
 }
 
 .form-button:hover {
@@ -345,4 +354,61 @@ p {
 
 .form-text-wrapper a:hover::before {
     transform: scaleX(1);
+}
+
+/* Estilos para as páginas individuais das tasks */
+
+.task-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 20px;
+    padding: 10px;
+}
+
+.task-main-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+    padding: 10px;
+    margin: 20px 0px;
+}
+
+.task-main-info-wrapper h2 {
+    max-width: 100%;
+    font-family: var(--mainfont);
+    font-size: 3em;
+    font-weight: bold;
+    
+    color: var(--fontcolor1);
+    text-shadow: 2px 2px 1px var(--fontcolor2);
+    margin-top: 20px;
+}
+
+.task-main-info-wrapper a {
+    font-family: var(--secondfont);
+    font-weight: normal;
+    font-size: 1em;
+    
+    color: var(--fontcolor2);
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.task-main-info-wrapper a:hover {
+    font-size: 1.1em;
+    color: var(--fontcolor1);
+}
+
+.task-other-info-wrapper {
+    padding: 10px;
+}
+
+.task-other-info-wrapper p {
+    margin-bottom: 12px;
+    line-height: 1.5em;
 }

@@ -4,14 +4,26 @@
 
     {% include 'navbar.html' %}
 
-    <h1>{{ task.title }}</h1>
+    <div class="task-wrapper">
+        <div class="task-main-info-wrapper">
+            <h2>{{ task.title }}</h2>
+            <a href="">@{{ task.user }}</a>
+            <p>This task was created {{ task.created|timesince }} ago</p>
+        </div>
 
-    {% if task.completed %}
-        <p>Task done!</p>
-    {% else %}
-        <p>Task not done yet!</p>
-    {% endif %}
-
-    <p>{{ task.description }}</p>
+        <div class="task-other-info-wrapper">
+            {% if task.completed %}
+                <p>Task done!</p>
+            {% else %}
+                <p>Task not done yet!</p>
+            {% endif %}
+            
+            {% if task.description != '' %}
+                <p>{{ task.description }}</p>
+            {% else %}
+                <p>The task doesn't have a description yet!</p>
+            {% endif %}
+        </div>
+    </div>
 
 {% endblock content %}
