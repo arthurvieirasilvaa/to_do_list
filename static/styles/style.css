@@ -2,10 +2,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+/* Estilos globais */
+
 * {
     margin: 0;
     padding: 0;
 }
+
+/* Variáveis utilizadas */
 
 :root {
     --bgcolor1: #30E3CA;
@@ -17,11 +21,15 @@
     --secondfont: "Oswald", sans-serif;
 }
 
+/* Estilos para o body das páginas */
+
 body {
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(to bottom, var(--bgcolor2) 25%, var(--bgcolor1) 75%);
 }
+
+/* Estilos para o menu de navegação */
 
 nav {
     float: right;
@@ -76,6 +84,8 @@ nav a:hover::before {
     transform-origin: bottom left;
 }
 
+/* Estilos para a main das páginas */
+
 main {
     display: flex;
     flex-direction: column;
@@ -84,7 +94,10 @@ main {
 
     width: 98vw;
     height: 500px;
+    padding: 30px 0px;
 }
+
+/* Estilos para o título principal das páginas */
 
 h1 {
     font-family: var(--mainfont);
@@ -93,9 +106,9 @@ h1 {
     
     color: var(--fontcolor1);
     text-shadow: 2px 2px 1px var(--fontcolor2);
-    
-    margin: 20px;
 }
+
+/* Estilos para a página principal */
 
 .add-task-input {
     width: 300px;
@@ -108,7 +121,6 @@ h1 {
     font-size: 1em;
     font-weight: 300;
     
-
     margin-bottom: 20px;
     padding: 3px 8px;
 }
@@ -205,6 +217,8 @@ p {
     color: #e70e02;
 }
 
+/* Estilos para as páginas de login e de registro */
+
 .form-field-wrapper {
     display: flex;
     flex-direction: column;
@@ -212,7 +226,7 @@ p {
 
     width: 250px;
     height: 50px;
-    margin: 20px 0px 20px 0px;
+    margin: 10px 0px;
     padding: 10px;
 }
 
@@ -220,7 +234,7 @@ p {
     font-family: var(--mainfont);
     font-size: 1.2em;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     
     color: var(--fontcolor1);
 }
@@ -237,7 +251,7 @@ p {
     font-size: 1em;
     font-weight: 300;
     
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     margin-left: 20px;
     padding: 2px 4px;
 }
@@ -294,12 +308,12 @@ p {
     text-align: center;
     
     padding: 8px;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .form-text-wrapper p {
     color: var(--fontcolor2);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 
 .form-text-wrapper a {
