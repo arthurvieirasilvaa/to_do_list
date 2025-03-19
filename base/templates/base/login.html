@@ -6,18 +6,26 @@
         <h1>Login</h1>
         <form action="" method="post">
             {% csrf_token %}
-            <div class="form-field">
+
+            <div class="form-field-wrapper">
                 <label class="form-label" for="Username">Username</label>
                 <input class="form-input" type="text" name="username" id="username" placeholder="type your username...">
             </div>
-            <div class="form-field">
+
+            <div class="form-field-wrapper">
                 <label class="form-label" for="Password">Password</label>
                 <input class="form-input" type="password" name="password" id="password" placeholder="type your password...">
             </div>
-            <input class="form-button" type="submit" value="Login">
+
+            <div class="form-button-wrapper">
+                <input class="form-button" type="submit" value="Login">
+            </div>
         </form>
-        <p>Haven't registered yet?</p>
-        <a href="{% url 'register' %}">Register</a>
+
+        <div class="form-text-wrapper">
+            <p>Haven't registered yet?</p>
+            <a href="{% url 'register' %}">Register</a>
+        </div>
     </main>
 
 {% endblock content %}
