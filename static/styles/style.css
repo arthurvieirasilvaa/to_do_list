@@ -358,7 +358,7 @@ p {
 
 /* Estilos para as páginas individuais das tasks */
 
-.task-wrapper {
+.content-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -378,7 +378,7 @@ p {
     margin: 20px 0px;
 }
 
-.task-main-info-wrapper h2 {
+h2 {
     max-width: 100%;
     font-family: var(--mainfont);
     font-size: 3em;
@@ -411,4 +411,59 @@ p {
 .task-other-info-wrapper p {
     margin-bottom: 12px;
     line-height: 1.5em;
+}
+
+/* Estilos para a página de atualizar uma task */
+
+.task-field-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+#form-input-desc {
+    width: 100%;
+    min-height: 30px;
+    max-height: 100px;
+    resize: none;
+
+    border-radius: 5px;
+    background-color: var(--fontcolor1);
+
+    font-family: var(--secondfont);
+    font-size: 1em;
+    font-weight: 300;
+    
+    margin-bottom: 10px;
+    margin-left: 20px;
+    padding: 2px 4px;
+}
+
+#form-input-desc:hover {
+    cursor: pointer;
+    background-color: #e4f9f5f5;
+    border: 1px solid var(--fontcolor2);
+}
+
+#form-input-desc:focus {
+    outline: 0;
+}
+
+.task-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#form-input-completed {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--bgcolor2);
+    border: none;
+}
+
+#form-input-completed:focus {
+    outline: 0;
 }

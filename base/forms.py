@@ -26,6 +26,14 @@ class UserForm(UserCreationForm):
     
 
 class TaskForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["title"].widget.attrs["class"] = "form-input"
+        
+        self.fields["description"].widget.attrs["id"] = "form-input-desc"
+        
+        self.fields["completed"].widget.attrs["id"] = "form-input-completed"
+                
     class Meta:
         model = Task
         fields = ['title', 'description', 'completed']
