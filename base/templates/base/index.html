@@ -18,9 +18,15 @@
         {% for task in tasks %}
             <div class="task-item">
                 <a id="task-title-link" href="{% url 'task' task.id %}">
-                    <div class="task-title-wrapper">
-                        {{ task.title }}
-                    </div>
+                    {% if task.completed == True %}
+                        <div class="task-title-wrapper task-completed-title-wrapper">
+                            {{ task.title }}
+                        </div>
+                    {% else %}
+                        <div class="task-title-wrapper">
+                            {{ task.title }}
+                        </div>
+                    {% endif %}
                 </a>
                 
                 <div class="task-icons">

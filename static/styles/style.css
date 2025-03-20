@@ -201,6 +201,10 @@ p {
     font-size: 1.1em;
 }
 
+.task-completed-title-wrapper {
+    text-decoration: line-through;
+}
+
 .task-icons {
     display: flex;
     gap: 5px;
