@@ -2,12 +2,19 @@
 
 {% block content %}
 
-    <form action="" method="post">
-        {% csrf_token %}
+    {% include 'navbar.html' %}
 
-        <p>Are you sure you want to delete the task "{{ task.title }}?"</p>
-        <input type="submit" value="Delete">
-        <a href="{% url 'index' %}">Cancel</a>
-    </form>
+    <div class="content-container">
+        <form action="" method="post">
+            <h2>Delete Task</h2>
+            {% csrf_token %}
+            <p>Are you sure you want to delete the task "{{ task.title }}?"</p>
+            
+            <div class="form-delete-option-wrapper">
+                <input class="form-button" type="submit" value="Delete">
+                <a class="form-link" href="{% url 'index' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
