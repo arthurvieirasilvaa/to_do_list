@@ -6,13 +6,14 @@
 
     <div class="content-container">
         <form action="" method="post">
-            <h2>Delete Task</h2>
+            <h2>Delete Page</h2>
             {% csrf_token %}
-            <p>Are you sure you want to delete the task "{{ task.title }}?"</p>
             
-            <div class="form-delete-option-wrapper">
+            <p>Are you sure you want to delete "{{ obj }}?"</p>
+            
+            <div class="form-link-button-wrapper">
                 <input class="form-button" type="submit" value="Delete">
-                <a class="form-link" href="{% url 'index' %}">Cancel</a>
+                <a class="form-link" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
             </div>
         </form>
     </div>

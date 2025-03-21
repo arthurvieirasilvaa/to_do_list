@@ -22,6 +22,7 @@ def registerPage(request):
             user = form.save(commit=False) # ainda não salva no banco de dados
             user.username = user.username.lower()
             user.save()
+            login(request, user)
             
             return redirect('index')
     
@@ -156,9 +157,9 @@ def deleteTask(request, pk):
         
         return redirect('index')
     
-    context = {'task': task}
+    context = {'obj': task}
     
-    return render(request, 'base/delete_task.html', context)
+    return render(request, 'base/delete.html', context)
 
 
 @login_required(login_url='login')
@@ -190,3 +191,21 @@ def profilePage(request, pk):
     context = {'user': user, 'form': form}
     
     return render(request, 'base/profile.html', context)
+
+
+@login_required(login_url='login')
+def deleteUser(request, pk):
+    user = User.objects.get(id=pk)
+    
+    # Se o usuário logado não for o mesmo usuário da página de perfil:
+    if request.user != user:
+        return HttpResponse("You are not allowed here!")
+    
+    if request.method == 'POST':
+        user.delete()
+        
+        return redirect('index')
+    
+    context = {'obj': user}
+    
+    return render(request, 'base/delete.html', context)

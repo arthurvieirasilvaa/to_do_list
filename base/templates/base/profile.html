@@ -15,8 +15,9 @@
                 </div>
             {% endfor %}
 
-            <div class="form-button-wrapper">
+            <div class="form-link-button-wrapper">
                 <input class="form-button" type="submit" value="Update">
+                <a class="form-link" href="{% url 'delete-user' request.user.id %}">delete account</a>
             </div>
         </form>
     </div>
