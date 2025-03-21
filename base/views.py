@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -96,8 +96,12 @@ def index(request):
 
 
 @login_required(login_url='login')
-def task(request, pk):   
+def task(request, pk):
     task = Task.objects.get(id=pk)
+
+    # Se o usuário logado não for o mesmo usuário da task:
+    if request.user != task.user:
+        return HttpResponse("You are not allowed here!")
 
     context = {'task': task}    
     
@@ -108,6 +112,10 @@ def task(request, pk):
 def taskUpdate(request, pk):
     task = Task.objects.get(id=pk)
     form = TaskForm(instance=task)
+    
+    # Se o usuário logado não for o mesmo usuário da task:
+    if request.user != task.user:
+        return HttpResponse("You are not allowed here!")
     
     # Se a requisição é POST, precisamos processar os dados do formulário:
     if request.method == 'POST':
@@ -138,6 +146,10 @@ def taskUpdate(request, pk):
 def deleteTask(request, pk):
     task = Task.objects.get(id=pk)
     
+    # Se o usuário logado não for o mesmo usuário da task:
+    if request.user != task.user:
+        return HttpResponse("You are not allowed here!")
+    
     # Se a requisição é POST, precisamos processar os dados do formulário:
     if request.method == 'POST':
         task.delete()
@@ -153,6 +165,10 @@ def deleteTask(request, pk):
 def profilePage(request, pk):
     user = User.objects.get(id=pk)
     form = UserForm(instance=user)
+    
+    # Se o usuário logado não for o mesmo usuário da página de perfil:
+    if request.user != user:
+        return HttpResponse("You are not allowed here!")
     
     # Se a requisição é POST, precisamos processar os dados do formulário:
     if request.method == 'POST':
