@@ -8,6 +8,7 @@
         <h2>Update task informations</h2>
         <form action="" method="post">
             {% csrf_token %}
+
             {% for field in form %}
                 {% if field.field.widget.input_type ==  'checkbox' %}
                     <div class="task-checkbox-wrapper">

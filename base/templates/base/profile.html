@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'navbar.html' %}
+
+    <div class="content-container">
+        <h2>User Informations</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div class="form-field-wrapper">
+                    <label class="form-label" for="{{ field.label }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+            {% endfor %}
+
+            <div class="form-button-wrapper">
+                <input class="form-button" type="submit" value="Update">
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

@@ -138,6 +138,7 @@ def taskUpdate(request, pk):
 def deleteTask(request, pk):
     task = Task.objects.get(id=pk)
     
+    # Se a requisição é POST, precisamos processar os dados do formulário:
     if request.method == 'POST':
         task.delete()
         
@@ -146,3 +147,30 @@ def deleteTask(request, pk):
     context = {'task': task}
     
     return render(request, 'base/delete_task.html', context)
+
+
+@login_required(login_url='login')
+def profilePage(request, pk):
+    user = User.objects.get(id=pk)
+    form = UserForm(instance=user)
+    
+    # Se a requisição é POST, precisamos processar os dados do formulário:
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        
+        if form.is_valid():
+            user.username = request.POST.get('username').lower()
+            user.email = request.POST.get('email')
+            user.password1 = request.POST.get('password1')
+            user.password2 = request.POST.get('password2')
+            
+            user.save() # atualiza os dados do usuário
+            
+            return redirect('index')
+
+        else:
+            messages.error(request, "The new user informations are not valid!")
+        
+    context = {'user': user, 'form': form}
+    
+    return render(request, 'base/profile.html', context)
