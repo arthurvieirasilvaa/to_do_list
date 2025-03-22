@@ -1,4 +1,4 @@
-# Projeto - To Do List App
+# To Do List App
 
 ## Preview do App
 
@@ -7,7 +7,7 @@
 ## 📖 Objetivo:
 
 Este trabalho consiste em criar um To Do List App utilizando o Framework Django. Sendo assim, a principal funcionalidade do App é permitir que o usuário
-crie, atualize e delete tasks. Além disso, há um sistema de login e registro de usuários e uma página na qual o usuário visualize as informações do seu perfil.
+crie, atualize e delete tasks. Além disso, há um sistema de login e registro de usuários e uma página na qual o usuário possa visualizar as informações do seu perfil.
 
 ## 🖥️ Tecnologias
 
