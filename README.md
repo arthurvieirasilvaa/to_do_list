@@ -12,7 +12,7 @@ crie, atualize e delete tasks. Além disso, há um sistema de login e registro d
 ## 🖥️ Tecnologias
 
 - **Django**
-- **SQLite3**
+- **SQLite**
 - **HTML5**
 - **CSS3**
 
