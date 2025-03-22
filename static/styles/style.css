@@ -98,7 +98,8 @@ main {
     justify-content: center;
 
     width: 100%;
-    max-width: 100vw;
+    max-width: 400px;
+    margin: auto;
     box-sizing: border-box;
     min-height: 500px;   
 }
@@ -258,7 +259,9 @@ p {
 }
 
 .form-input {
-    width: 220px;
+    width: 100%;
+    min-width: 200px;
+    max-width: 500px;
     height: 30px;
     
     border-radius: 5px;
@@ -344,7 +347,7 @@ p {
 
     font-family: var(--secondfont);
     font-weight: normal;
-    font-size: 1em;
+    font-size: 1.2em;
 
     color: var(--fontcolor2);
     text-decoration: none;
@@ -543,5 +546,30 @@ h2 {
 
     .task-icons {
         align-items: center;
+    }
+
+    .form-field-wrapper {
+        min-height: 20px;
+        max-height: 80px;
+    }
+
+    .form-label {
+        font-size: 1em;
+    }
+
+    .form-input {
+        min-width: 100px;
+        max-width: 300px;
+    }
+
+    .form-button {
+        min-width: 40px;
+        max-width: 60px;
+        height: 30px;
+        padding: 0px 2px;
+    }
+
+    .form-link {
+        font-size: 1em;
     }
 }
