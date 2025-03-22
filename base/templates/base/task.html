@@ -7,7 +7,7 @@
     <div class="content-container">
         <div class="task-main-info-wrapper">
             <h2>{{ task.title }}</h2>
-            <a href="">@{{ task.user }}</a>
+            <a href="{% url 'profile' task.user.id %}">@{{ task.user }}</a>
             <p>This task was created {{ task.created|timesince }} ago</p>
         </div>
 
