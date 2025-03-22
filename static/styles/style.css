@@ -95,7 +95,11 @@ nav a:hover::before {
 }
 
 .material-symbols-outlined {
-    font-size: 1.8em;
+    font-size: 1.5em;
+}
+
+#home-icon {
+    color: var(--fontcolor1);
 }
 
 /* Estilos para a main das páginas */
@@ -504,4 +508,20 @@ h2 {
 
     margin: 10px 0px;
     padding: 5px;
+}
+
+/* Estilos para as flash messages */
+
+.messages {
+    list-style-type: none;
+    padding: 4px;
+    max-width: 400px;
+}
+
+.messages li {
+    font-family: var(--fontcolor2);
+    font-size: 1.2em;
+    font-weight: bold;
+
+    color: var(--fontcolor2);
 }

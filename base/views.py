@@ -53,17 +53,18 @@ def loginPage(request):
         except:
             messages.error(request, 'User does not exist!')
             
-        # Autenticando o usuário:
-        user = authenticate(username=username, password=password)
-        
-        # Se as credenciais são válidas:
-        if user is not None:
-            login(request, user) # loga o usuário
-            
-            return redirect('index')
-        
         else:
-            messages.error(request, "Invalid Username OR Password!")
+            # Autenticando o usuário:
+            user = authenticate(username=username, password=password)
+            
+            # Se as credenciais são válidas:
+            if user is not None:
+                login(request, user) # loga o usuário
+                
+                return redirect('index')
+            
+            else:
+                messages.error(request, "Invalid Username OR Password!")
         
     return render(request, 'base/login.html')
     
