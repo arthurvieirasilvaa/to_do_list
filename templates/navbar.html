@@ -1,4 +1,12 @@
 <nav>
-        <a href="{% url 'profile' request.user.id %}">Profile</a>
-        <a href="{% url 'logout' %}">Logout</a>
+        <div class="home-container">
+                <a href="{% url 'index' %}">
+                        <span class="material-symbols-outlined">home</span>
+                </a>
+        </div>
+
+        <div class="navlinks-container">
+                <a href="{% url 'profile' request.user.id %}">Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+        </div>
 </nav>

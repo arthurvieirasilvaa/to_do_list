@@ -1,0 +1,141 @@
+/* Estilos para dispositivos mobile */
+
+@media screen and (max-width: 768px) {
+    /* Estilos para o menu de navegação */
+
+    nav {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navlinks-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav a {
+        font-size: 1.2em;
+        margin: 5px;
+    }
+
+    nav a:hover {
+        font-size: 1.3em;
+    }
+
+    .material-symbols-outlined {
+        font-size: 1.4em;
+    }
+
+    /* Estilos para a main das páginas */
+
+    main {
+        max-width: 300px;
+    }
+
+    /* Estilos para o título principal das páginas */
+
+    h1 {
+        font-size: 2.5em;
+        text-align: center;
+        max-width: 90%;
+    }
+
+    /* Estilos para a página principal */
+
+    .add-task-input {
+        width: 100%;
+        max-width: 400px;
+        min-width: 200px;
+    }
+
+    .p-wrapper {
+        align-items: center;
+        width: 100%;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .task-item {
+        grid-template-columns: 150px 40px 40px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .task-title-wrapper {
+        width: 100%;
+    }
+
+    .task-icons {
+        align-items: center;
+    }
+
+    /* Estilos para as páginas de login e de registro */
+
+    .form-field-wrapper {
+        min-height: 20px;
+        max-height: 80px;
+    }
+
+    .form-label {
+        font-size: 1em;
+    }
+
+    .form-input {
+        min-width: 100px;
+        max-width: 300px;
+    }
+
+    .form-button {
+        min-width: 40px;
+        max-width: 60px;
+        height: 30px;
+        padding: 0px 2px;
+    }
+
+    .form-link {
+        font-size: 1em;
+    }
+
+    /* Estilos para as páginas individuais das tasks */
+
+    .content-container {
+        width: 90%;
+        margin: auto;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    .task-main-info-wrapper a {
+        font-size: 0.8em;
+    }
+
+    .task-main-info-wrapper a:hover {
+        font-size: 0.9em;
+    }
+
+    /* Estilos para a página de atualizar uma task */
+
+    #form-input-desc {
+        max-width: 80%;
+        max-height: 60px;
+    }
+
+    #form-input-completed {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* Estilos para a página de deletar uma task */
+
+    .form-link-button-wrapper {
+        gap: 10px;
+        margin: 5px 0px;
+        padding: 2px;
+    }
+}

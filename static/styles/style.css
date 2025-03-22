@@ -44,14 +44,19 @@ nav {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    text-align: right;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-right: 10px;
 
     position: relative;
     transition: all .3s cubic-bezier(.2, 0, 0, 1);
     z-index: 1;
+}
+
+.home-container {
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
 }
 
 nav a {
@@ -87,6 +92,10 @@ nav a:hover {
 nav a:hover::before {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.material-symbols-outlined {
+    font-size: 1.8em;
 }
 
 /* Estilos para a main das páginas */
@@ -495,81 +504,4 @@ h2 {
 
     margin: 10px 0px;
     padding: 5px;
-}
-
-
-/* Estilos para dispositivos mobile */
-
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        height: auto;
-        text-align: center;
-        padding: 10px 0;
-    }
-
-    nav a {
-        font-size: 1.2em;
-        margin: 5px;
-    }
-
-    h1 {
-        font-size: 2.5em;
-        text-align: center;
-        max-width: 90%;
-    }
-
-    .add-task-input {
-        width: 100%;
-        max-width: 400px;
-        min-width: 200px;
-    }
-
-    .p-wrapper {
-        width: 100%;
-        text-align: center;
-    }
-
-    p {
-        font-size: 1em;
-    }
-
-    .task-item {
-        grid-template-columns: 150px 40px 40px;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .task-title-wrapper {
-        width: 100%;
-    }
-
-    .task-icons {
-        align-items: center;
-    }
-
-    .form-field-wrapper {
-        min-height: 20px;
-        max-height: 80px;
-    }
-
-    .form-label {
-        font-size: 1em;
-    }
-
-    .form-input {
-        min-width: 100px;
-        max-width: 300px;
-    }
-
-    .form-button {
-        min-width: 40px;
-        max-width: 60px;
-        height: 30px;
-        padding: 0px 2px;
-    }
-
-    .form-link {
-        font-size: 1em;
-    }
 }
